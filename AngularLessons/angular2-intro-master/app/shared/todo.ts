@@ -1,6 +1,5 @@
 export class Todo {
-    title:string;
-    completed:boolean;
+    id: number;
 
     constructor(title:string, completed:boolean = false) {
         this.title = title;
