@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Todo} from "../shared/todo";
 
 @Component({
@@ -8,6 +8,18 @@ import {Todo} from "../shared/todo";
     styleUrls: ['todo-item.component.css']
 })
 
-export class TodoItemComponent{
-    todo:Todo=new Todo("sfdsfs");
+export class TodoItemComponent {
+    @Input() todo:Todo;
+
+    @Output() delete=new EventEmitter();
+
+    private toggle() {
+        this.todo.completed = !this.todo.completed;
+    }
+
+    onDelete(){
+        this.delete.emit(this.todo);
+    }
+
+
 }
